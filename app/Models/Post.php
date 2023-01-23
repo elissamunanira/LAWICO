@@ -22,9 +22,9 @@ class Post extends Model
         'body'
     ];
 
-    public function User(){
-        return $this->belongsTo('App\Models\User');
-    }
+    // public function User(){
+    //     return $this->belongsTo('App\Models\User');
+    // }
 }
 
 
