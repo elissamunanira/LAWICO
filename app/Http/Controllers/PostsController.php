@@ -139,9 +139,9 @@ class PostsController extends Controller
 
         //check for the correct user
 
-        if(auth()->user()->id != $post->user_id){
-            return redirect('/posts')->with('error', 'unauthorized Page');
-        }
+        // if(auth()->user()->id != $post->user_id){
+        //     return redirect('/posts')->with('error', 'unauthorized Page');
+        // }
         return view('posts.edit')->with('post', $post);
     }
 
@@ -187,7 +187,7 @@ class PostsController extends Controller
         }
         $post->save();
 
-        return redirect('/posts')-> with('success','Post updated successfully');
+        return redirect('/')-> with('success','Post updated successfully');
     }
 
     /**
@@ -208,9 +208,9 @@ class PostsController extends Controller
 
         //check for the correct user
 
-        if(auth()->user()->id != $post->user_id){
-            return redirect('/posts')->with('error', 'unauthorized Page');
-        }
+        // if(auth()->user()->id != $post->user_id){
+        //     return redirect('/posts')->with('error', 'unauthorized Page');
+        // }
         if($post->cover_image != 'noimage.jpg'){
             //Delete the image
             Storage::delete('/public/images/'. $post->cover_image);

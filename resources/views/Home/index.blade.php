@@ -370,6 +370,29 @@
       <!-- featured -center  -->
 
       <div class="section-center featured-center">
+                {{-- <!-- single post -->
+                <article class="post-card">
+                  <div class="post-img-container">
+        
+                    <img style="width :100%"src="storage/images/{{$posts->cover_image}}">
+                    <p class="post-date">
+                      {{$posts->created_at}}
+                    </p>
+                  </div>
+        
+                  <!-- post info -->
+        
+                  <div class="post-info">
+                    <h4><a href = "/posts/{{$posts->id}}">{{ $posts->title }}</a></h4>
+        
+                   <p>{{$posts->body}}</p>
+                  </div>
+        
+                  <a href="#post" class="btn">read more</a>
+        
+                </article>
+         --}}
+                <!-- end of single post -->
 
         <!-- single post -->
         <article class="post-card">
