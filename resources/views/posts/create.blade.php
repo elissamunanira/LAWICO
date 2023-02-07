@@ -1,7 +1,18 @@
-@extends('layouts.app')
 
-@section('content')
-    <h1>Create Post</h1>
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>LAWICO</title>
+
+        <div class="container">
+            <h1>Create Post</h1>
     <form action= "{{url('posts')}}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <div class="form-group">
@@ -17,4 +28,10 @@
          </div>
         <input type="submit" value="Upload" class="btn btn-success"></br>
     </form>
-@endsection
+        </div>
+
+
+</body>
+</html>
+
+

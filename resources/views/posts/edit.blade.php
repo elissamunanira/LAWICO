@@ -1,8 +1,18 @@
-@extends ("layouts.app");
 
-@section('content')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
 
-  <h1>Edit Post</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>LAWICO</title>
+
+        <div class="container">
+          <h1>Edit Post</h1>
 
   <form action="{{ url('posts/'.$post->id) }}" method="post" enctype="multipart/form-data">
      {{csrf_field()}}
@@ -21,40 +31,14 @@
          </div>
          {{Form::submit('Submit' , ['class' => 'btn btn-primary'])}}
   </form>
-@endsection
 
-{{-- @extends('layouts.app')
+        </div>
 
-@section('content')
-    <h1>Create Post</h1>
-    <form action= "{{url('PostsController@update '.$post->id)}}" method="post">
-        {!! csrf_field() !!}
-        @method("PUT")
-        <label>Title</label></br>
-        <input type="text" name="title" id="title" value="{{$post->title}}"class="form-control"></br>
-        <label>Body</label></br>
-        <input type="textarea" name="body" id="address" value="{{$post->body}}"class="form-control"></br>
-        <input type="submit" value="Upload" class="btn btn-success"></br>
-    </form>
-@endsection--}}
 
-{{-- @extends('layouts.app')
-@section('content')
-<div class="card">
-  <div class="card-header">Contactus Page</div>
-  <div class="card-body">
+</body>
+</html>
 
-      <form action="{{ url('posts/' .$post->id) }}" method="post">
-        {!! csrf_field() !!}
-        @method("PATCH")
-        <label>title</label></br>
-        <input type="text" name="id" id="id" value="{{$post->title}}" class="form-control"id="id" /><br>
-        <label>Name</label></br>
-        <input type="text" name="name" id="name" value="{{$post->body}}" class="form-control"></br>
-        <input type="submit" value="Update" class="btn btn-success"></br>
-    </form>
 
-  </div>
-</div>
-@stop --}}
+
+
 

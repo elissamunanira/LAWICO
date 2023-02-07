@@ -40,7 +40,7 @@ class PostsController extends Controller
         //$posts = Post::orderBy('title','desc')->take(1)->get();
         //$posts = Post::orderBy('title','desc')->get();
 
-        $posts = Post::orderBy('created_at','desc');
+        $posts = Post::all();
         return view('posts.index')-> with('posts', $posts);
     }
 
@@ -187,7 +187,7 @@ class PostsController extends Controller
         }
         $post->save();
 
-        return redirect('/')-> with('success','Post updated successfully');
+        return redirect('/posts')-> with('success','Post updated successfully');
     }
 
     /**
