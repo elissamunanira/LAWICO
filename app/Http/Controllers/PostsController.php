@@ -41,8 +41,10 @@ class PostsController extends Controller
         //$posts = Post::orderBy('title','desc')->get();
 
         $posts = Post::all();
-        return view('posts.index')-> with('posts', $posts);
+        return view('posts.index',["posts"=>$posts]);
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -74,7 +76,7 @@ class PostsController extends Controller
         $this -> validate($request , [
             'title' => 'required',
             'body' => 'required',
-            'cover_image' => 'image|nullable|max:1999'
+            'cover_image' => 'image|max:1999'
         ]);
 
         // Handle File upload
@@ -177,6 +179,7 @@ class PostsController extends Controller
             //upload image
             $path = $request->file('cover_image')->storeAs('public/images/',$fileNameToStore);
         }
+
         //updating post
 
         $post = Post::find($id);

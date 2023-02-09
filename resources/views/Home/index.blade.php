@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+
+    {{-- start of my css bootstrap --}}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    {{-- end of my css bootstrap --}}
+
+
+
+
     <title>Lawico Ltd ||  Company</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="lawico/images/favicon.ico" type="image/x-icon" />
@@ -14,6 +26,9 @@
     />
     <!-- styles css -->
     <link rel="stylesheet" href="lawico/css/styles.css" />
+
+
+
   </head>
 
 
@@ -368,32 +383,31 @@
       <!-- section  end of title -->
 
       <!-- featured -center  -->
-
-      <div class="section-center featured-center">
-                {{-- <!-- single post -->
-                <article class="post-card">
-                  <div class="post-img-container">
+      <div class="container">
+        <h1>Posts</h1>
+        @if (count($posts)>0)
+            @foreach($posts as $post)
+                <div class="well">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <img style="width :100%"src="/storage/images/{{$post->cover_image}}">
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <h3><a href = "/posts/{{$post->id}}">{{ $post->title }}</a></h3>
+                            <p>{{ $post->body }}</p>
+                            <small>Written on {{$post->created_at}}</small>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            {{-- <hr>
+            {{$posts->links()}} --}}
+        @else
+            <h3>No Posts available</h3>
+        @endif
         
-                    <img style="width :100%"src="storage/images/{{$posts->cover_image}}">
-                    <p class="post-date">
-                      {{$posts->created_at}}
-                    </p>
-                  </div>
-        
-                  <!-- post info -->
-        
-                  <div class="post-info">
-                    <h4><a href = "/posts/{{$posts->id}}">{{ $posts->title }}</a></h4>
-        
-                   <p>{{$posts->body}}</p>
-                  </div>
-        
-                  <a href="#post" class="btn">read more</a>
-        
-                </article>
-         --}}
                 <!-- end of single post -->
-
+{{-- 
         <!-- single post -->
         <article class="post-card">
           <div class="post-img-container">
@@ -530,11 +544,11 @@
           <a href="#post" class="btn">read more</a>
         
         </article>
-        
+         --}}
         <!-- end of single post -->
         
         <div class="post-btn">
-          <a href="#post" class="btn">
+          <a href="/posts" class="btn">
           
           all posts</a>
         </div>
@@ -765,20 +779,28 @@
 
     <!-- gallery  -->
 
-    <section id="gallery">
-      <div class="gallery-center">
-        <!-- single item -->
+    {{-- @if ($posts->cover_image != 'noimage.jpg') --}}
+          @if (count($posts)>0)
+            @foreach($posts as $post)
 
-        <article class="gallery-img-container">
-          <img src="lawico/images/big-lil uz.png" class="gallery-img" alt="">
-          <a href="#" class="gallery-icon">
-            <i class="fas fa-search"></i>
-          </a>
-        </article>
-        <!-- end of single item -->
-          <!-- single item -->
+                <section id="gallery">
+                  <div class="gallery-center">
+                    <!-- single item -->
+
+                    <article class="gallery-img-container">
+                        <img style="width :100%"src="/storage/images/{{$post->cover_image}}">
+                      <a href="/posts/{{$post->id}}" class="gallery-icon">
+                        <i class="fas fa-search"></i>
+                      </a>
+                    </article>
+                    <!-- end of single item -->
+                      <!-- single item -->
+                  </div>
+                </section>
+            @endforeach
+          @endif
           
-          <article class="gallery-img-container">
+          {{-- <article class="gallery-img-container">
             <img src="lawico/images/birt.png" class="gallery-img" alt="">
             <a href="#" class="gallery-icon">
               <i class="fas fa-search"></i>
@@ -839,7 +861,7 @@
             <a href="#" class="gallery-icon">
               <i class="fas fa-search"></i>
             </a>
-          </article>
+          </article> --}}
           <!-- end of single item -->
 
       </div>

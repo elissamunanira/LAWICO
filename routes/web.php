@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::resource('/posts', 'App\Http\Controllers\PostsController');
-
-Route::get('/', function () {
-    return view('Home.index');
-});
+Route::resource('/posts', PostsController::class);
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
+Route::get('/', 'App\Http\Controllers\HomeController@index');
+// Route::get('/', function () {
+//     return view('Home.index');
+// });
