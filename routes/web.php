@@ -19,8 +19,9 @@ use App\Http\Controllers\DashboardController;
 
 
 Route::resource('/posts', PostsController::class);
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 Route::get('/', 'App\Http\Controllers\HomeController@index');
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
+
 // Route::get('/', function () {
 //     return view('Home.index');
 // });

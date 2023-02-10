@@ -788,7 +788,7 @@
                     <!-- single item -->
 
                     <article class="gallery-img-container">
-                        <img style="width :100%"src="/storage/images/{{$post->cover_image}}">
+                        <img src="/storage/images/{{$post->cover_image}}">
                       <a href="/posts/{{$post->id}}" class="gallery-icon">
                         <i class="fas fa-search"></i>
                       </a>

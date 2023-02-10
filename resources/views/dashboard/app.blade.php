@@ -80,7 +80,7 @@
   <body>
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/">LAWICO</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/"><img src="lawico/images/logo.jpeg" class="nav-logo" alt="lawico.logo"></a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -155,52 +155,17 @@
           </button>
         </div>
       </div>
+
+      @yield('content')
+
+
+
     </main>
   </div>
 </div>
 
 
-<h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-<a href="/dashboard/projects/create" class="btn btn-primary">ADD NEW PROJECT</a>
-<center><h2>The created projects</h2></center>
-<div class="table-responsive">
-  <table class="table table-striped table-sm">
-    <thead>
-      <tr>
-        <th scope="col">P_ID</th>
-        <th scope="col">TITLE</th>
-        <th scope="col">DOMAIN</th>
-        <th scope="col">SUPERVISOR</th>
-        <th scope="col">PDF</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{-- @if(!empty($projects)) --}}
-      @foreach($project as $project)
-      <tr>
-          <td>{{ $project->id}}</td>
-          <td>{{ $project->title }}</td>
-          <td>{{ $project->domain}}</td>
-          <td>{{ $project->supervisor}}</td>
-          <td>{{ $project->pdf_version}}</td>
-          <td>
-              <a href="{{ url('/projects/' . $project->id) }}" title="View project"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-              <a href="{{ url('/projects/' . $project->id . '/edit') }}" title="Edit project"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-              <form method="POST" action="{{ url('/projects' . '/' . $project->id) }}" accept-charset="UTF-8" style="display:inline">
-                  {{ method_field('DELETE') }}
-                  {{ csrf_field() }}
-                  <button type="submit" class="btn btn-danger btn-sm" title="Delete project" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-              </form>
-          </td>
-      </tr>
-  @endforeach
-  {{-- @endif --}}
-    </tbody>
-  </table>
-
-
-  {{-- start of my js bootstrap --}}
+{{-- start of my js bootstrap --}}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
