@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,4 @@ Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 // Route::get('/', function () {
 //     return view('Home.index');
 // });
+Route::get('/login',[AuthController::class, 'index']);

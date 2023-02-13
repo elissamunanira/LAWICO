@@ -12,4 +12,8 @@ class DashboardController extends Controller
         $posts = Post::orderBy('created_at','desc')->paginate(5);
         return view('dashboard.index')-> with('posts', $posts);
     }
+
+
+
+    
 }
