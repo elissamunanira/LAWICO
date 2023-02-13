@@ -28,3 +28,7 @@ Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 //     return view('Home.index');
 // });
 Route::get('/login',[AuthController::class, 'index']);
+
+
+Route::get('/register',[AuthController::class, 'create']);
+Route::post('/users',[AuthController::class, 'store']);

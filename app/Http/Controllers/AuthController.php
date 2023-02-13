@@ -24,6 +24,8 @@ class AuthController extends Controller
     public function create()
     {
         //
+
+        return view('dashboard.register');
     }
 
     /**
@@ -35,6 +37,19 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         //
+
+        $formFields = $request->validate(
+            [
+                'name'=> 'required|min:2',
+                'email'=>'required|unique:users','email',
+                'password'=>'required|confirmed|min:6'
+            ]
+        );
+
+        $formFields['passwird']=bcrypt($formFields['password']);
+        $user = User::create($formFields);
+        auth()->login($user);
+        return redirect('/dashboard')->with('succes', 'User created and logged in ');
     }
 
     /**
