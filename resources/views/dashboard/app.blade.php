@@ -156,6 +156,8 @@
         </div>
       </div>
 
+      {{-- CONTENT FIELD --}}
+      
       @yield('content')
 
 
