@@ -18,7 +18,11 @@
     <title>LAWICO</title>
 
         <div class="container">
-            <h1>Posts</h1>
+            <div>
+                <a href="/"><button class="btn btn-primary">BACK</button></a>
+                <center><h1>All Posts from Lawico</h1></center>
+            </div>
+            <br><br>
             @if (count($posts)>0)
                 @foreach($posts as $post)
                     <div class="well">
@@ -31,6 +35,7 @@
                                 <p>{{ $post->body }}</p>
                                 <small>Written on {{$post->created_at}}</small>
                             </div>
+                            <br><br>
                         </div>
                     </div>
                 @endforeach

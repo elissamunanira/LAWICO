@@ -112,7 +112,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                                 </div>
-                                                <input type="password" class="form-control" id="val-password1" name="val-password" placeholder="Choose a safe one..">
+                                                <input type="password" class="form-control" id="val-password1" name="password" placeholder="Choose a safe one..">
                                                 <div class="input-group-append show-pass">
                                                     <span class="input-group-text"> <i class="fa fa-eye-slash"></i>
                                                     </span>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -46,10 +47,11 @@ class AuthController extends Controller
             ]
         );
 
-        $formFields['passwird']=bcrypt($formFields['password']);
+        $formFields = $request->all();
+        $formFields['password']=bcrypt($formFields['password']);
         $user = User::create($formFields);
         auth()->login($user);
-        return redirect('/dashboard')->with('succes', 'User created and logged in ');
+        return redirect('/lawicodashboard')->with('succes', 'User created and logged in ');
     }
 
     /**

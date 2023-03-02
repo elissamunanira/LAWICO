@@ -780,7 +780,7 @@
     <!-- gallery  -->
 
     {{-- @if ($posts->cover_image != 'noimage.jpg') --}}
-          @if (is_countable($posts)>0)
+          @if (count($posts)>0)
             @foreach($posts as $post)
 
                 <section id="gallery">
