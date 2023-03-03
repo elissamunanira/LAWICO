@@ -60,6 +60,21 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+     //logout user
+     public function logout(Request $resquest){
+
+        auh()->logout();
+        $request->session()->invaridate();
+        $request->session()->regenerateToken();
+
+        return redirect('/lawicodashboard')->with('message', 'You have been logged out');
+
+     }
+
+
+
     public function show($id)
     {
         //

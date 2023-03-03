@@ -20,17 +20,25 @@ use App\Http\Controllers\HomeController;
 
 
 
-Route::resource('/posts', PostsController::class);
+
+//show home/landing page
 Route::get('/', [HomeController::class,'index']);
+
+
+//show dashboard
 Route::get('/lawicodashboard', [DashboardController::class,'index']);
 
-// Route::get('/', function () {
-//     return view('Home.index');
-// });
+//all related to posts
+Route::resource('/posts', PostsController::class);
 
+//show login form
 Route::get('/login', [AuthController::class, 'index']);
+
+//show register and create form
 Route::get('/register', [AuthController::class, 'create']);
 
-
-// Route::resource('/users',AuthController::class);
+// create new user
 Route::post('/users', [AuthController::class, 'store']);
+
+//log user out 
+Route::get('/logout',[AuthController::class,'logout']);
